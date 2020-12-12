@@ -39,4 +39,8 @@ http://localhost:8080/states/{int}
 http://localhost:8080/cities/all  
 http://localhost:8080/cities/page?page={int}  
 http://localhost:8080/cities/{int}  
+
+#### Distances
+http://localhost:8080/distances/by-points?from={city1_id}&to={city2_id}  
+http://localhost:8080/distances/by-cube?from={city1_id}&to={city2_id}
   
