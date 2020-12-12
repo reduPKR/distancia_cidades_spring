@@ -1,7 +1,8 @@
-package com.redupkr.distancia_cidades;
+package com.redupkr.distancia_cidades.Resource;
 
 import com.redupkr.distancia_cidades.entity.Country;
-import com.redupkr.distancia_cidades.repository.CountryRepository;
+import com.redupkr.distancia_cidades.entity.State;
+import com.redupkr.distancia_cidades.repository.StateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,27 +16,26 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/countries")
-public class CountryResource {
+@RequestMapping("/states")
+public class StateResource {
     @Autowired
-    private CountryRepository repository;
+    private StateRepository repository;
 
     @GetMapping("/all")
-    public List<Country> findAll(){
+    public List<State> findAll(){
         return repository.findAll();
     }
 
     @GetMapping("/page")
-    public Page<Country> getPage(Pageable page){
+    public Page<State> getPage(Pageable page){
         return repository.findAll(page);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Country> getById(@PathVariable long id){
-        Optional<Country> optional = repository.findById(id);
+    public ResponseEntity<State> getById(@PathVariable long id){
+        Optional<State> optional = repository.findById(id);
 
-        return optional.map(country -> ResponseEntity.ok().body(country))
+        return optional.map(state -> ResponseEntity.ok().body(state))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-
 }

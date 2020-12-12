@@ -2,6 +2,7 @@ package com.redupkr.distancia_cidades.entity;
 
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
@@ -27,10 +28,6 @@ public class State {
 
     @Column(name = "pais")
     private Integer countryId;
-
-    @ManyToOne
-    @JoinColumn(name = "pais", referencedColumnName = "id")
-    private Country country;
 
     @Type(type = "jsonb")
     @Basic(fetch = FetchType.LAZY)
@@ -58,10 +55,6 @@ public class State {
 
     public List<Integer> getDdd() {
         return ddd;
-    }
-
-    public Country getCountry() {
-        return country;
     }
 
     public Integer getCountryId() {
