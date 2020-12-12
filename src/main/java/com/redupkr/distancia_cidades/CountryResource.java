@@ -5,6 +5,7 @@ import com.redupkr.distancia_cidades.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +31,11 @@ public class CountryResource {
     }
 
     @GetMapping("/{id}")
-    public Country getById(@PathVariable long id){
+    public ResponseEntity<Country> getById(@PathVariable long id){
         Optional<Country> optional = repository.findById(id);
-        return optional.get();
+
+        return optional.map(country -> ResponseEntity.ok().body(country))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 }
