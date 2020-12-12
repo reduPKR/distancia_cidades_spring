@@ -12,8 +12,8 @@ CREATE EXTENSION earthdistance;
   
 #### Calculo de distancia por cube  
 select earth_distance(
-ll_to_earth(-21.95840072631836,-47.98820114135742),
-ll_to_earth(-22.01740074157715,-47.88600158691406)
+ll_to_earth(latitude1 ,longitude1),
+ll_to_earth(latitude2 ,longitude2)
 ) as distance;  
 Obs: Retorna em metros  
 
