@@ -20,4 +20,9 @@ http://localhost:8080/countries/{int}
 http://localhost:8080/states/all
 http://localhost:8080/states/page?page={int}  
 http://localhost:8080/states/{int}  
+
+#### cities
+http://localhost:8080/cities/all
+http://localhost:8080/cities/page?page={int}  
+http://localhost:8080/cities/{int}  
   
