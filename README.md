@@ -12,17 +12,17 @@ docker run --name cities-db -d -p 5432:5432 -e POSTGRES_USER=postgres_user_city 
   
 ## Rotas  
 #### Countries
-http://localhost:8080/countries/all
+http://localhost:8080/countries/all  
 http://localhost:8080/countries/page?page={int}  
 http://localhost:8080/countries/{int}  
   
 #### States  
-http://localhost:8080/states/all
+http://localhost:8080/states/all  
 http://localhost:8080/states/page?page={int}  
 http://localhost:8080/states/{int}  
 
 #### cities
-http://localhost:8080/cities/all
+http://localhost:8080/cities/all  
 http://localhost:8080/cities/page?page={int}  
 http://localhost:8080/cities/{int}  
   
